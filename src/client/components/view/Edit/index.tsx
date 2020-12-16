@@ -66,9 +66,9 @@ const Edit = (props: AppProps) => {
             <div className="card-body">
                 <div className="input-group">
                 <div className="input-group-prepend">
-                    <span className="input-group-text" id="">Choose Author</span>
+                    <span className="input-group-text border-dark shadow-sm" id="">Choose Author</span>
                 </div>
-                <select onChange={(e) => setAuthor(Number(e.currentTarget.value))} defaultValue={author} name="author">
+                <select className="border-dark shadow-sm" onChange={(e) => setAuthor(Number(e.currentTarget.value))} defaultValue={author} name="author">
                     {authorList?.map(author => {
                         return <option key={author.id} value={author.id}>{author.name}</option>;
                     })}
@@ -76,15 +76,15 @@ const Edit = (props: AppProps) => {
                 </div>
                 <div className="input-group mt-2">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="">Title</span>
+                        <span className="input-group-text border-dark shadow-sm" id="">Title</span>
                     </div>
-                    <input type="text" placeholder="Blog Title" value={title} onChange={(e) => setTitle(e.target.value)} className="form-control"/>
+                    <input type="text" placeholder="Blog Title" value={title} onChange={(e) => setTitle(e.target.value)} className="form-control border-dark shadow-sm"/>
                 </div>
                 <div className="input-group mt-2">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="">Choose Tag</span>
+                        <span className="input-group-text border-dark shadow-sm" id="">Choose Tag</span>
                     </div>
-                    <select onChange={(e) => { setTag(Number(e.currentTarget.value));}} defaultValue={tag} name="author">
+                    <select className='border-dark shadow-sm' onChange={(e) => { setTag(Number(e.currentTarget.value));}} defaultValue={tag} name="author">
                         {tagList?.map(tag => {
                             return (<option key={tag.id} value={tag.id}>{tag.name}</option>);
                         })}
@@ -92,15 +92,15 @@ const Edit = (props: AppProps) => {
                 </div>
                 <div className="input-group mt-2">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="">Content</span>
+                        <span className="input-group-text border-dark shadow-sm" id="">Content</span>
                     </div>
-                    <textarea onChange={(e) => setBody(e.target.value)} className="form-control" rows={10} id="" value={body}></textarea>
+                    <textarea onChange={(e) => setBody(e.target.value)} className="form-control border-dark shadow-sm" rows={10} id="" value={body}></textarea>
                 </div>
             </div>
-            <div className="card-footer d-flex justify-content-around">
-                <Link to={'/'} className="btn btn-primary">Back</Link>
-                <button onClick={handleDelete} className="btn btn-primary">Delete Blog</button>
-                <button onClick={handlePut} className="btn btn-primary">Submit Edit</button>
+            <div className="card-footer d-flex justify-content-around  border-dark shadow">
+                <Link to={'/'} className="btn btn-secondary border-dark shadow">Back</Link>
+                <button onClick={handleDelete} className="btn btn-secondary border-dark shadow">Delete Blog</button>
+                <button onClick={handlePut} className="btn btn-secondary border-dark shadow">Submit Edit</button>
             </div>
         </section>
     );

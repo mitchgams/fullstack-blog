@@ -36,11 +36,11 @@ const Blogs = (props: AppProps) => {
 		<div className="d-flex justify-content-center flex-wrap align-items-center">
 			{blogs?.map(blog => {
 				return (
-					<article key={blog.id} className="card m-2 shadow" style={{width: '18rem'}}>
+					<article key={blog.id} className="card m-2 border-dark shadow" style={{width: '18rem'}}>
                         <img src={imgUrl} alt="" className="card-img-top"/>
 						<h5 className="card-title m-1">{blog.title}</h5>
 						<p className="card-text m-1">Published: {moment(blog.publishdate).utc().format('MM-DD-YYYY')}</p>
-						<div className="card-footer p-1 d-flex justify-content-start"><Link to={`/blogs/${blog.title}/${blog.id}`} className="btn btn-secondary">View Blog</Link></div>
+						<div className="card-footer p-1 border-dark d-flex justify-content-start"><Link to={`/blogs/${blog.title}/${blog.id}`} className="btn btn-secondary border-dark shadow-sm">View Blog</Link></div>
 					</article>
 				);
 			})}

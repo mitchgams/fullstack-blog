@@ -42,14 +42,14 @@ const Blog = (props: AppProps) => {
             <>
             <div className="d-flex justify-content-center align-items-center">
                 {
-                        <article key={blog.blogid} className="card m-2 shadow" style={{width: '100%'}}>
+                        <article key={blog.blogid} className="card m-2 border-dark shadow" style={{width: '100%'}}>
                             <h3 className="card-title m-1">{blog.title}</h3>
                             <p className="card-title m-1">Written by {blog.name} on {moment(blog.publishdate).utc().format('MM-DD-YYYY')}</p>
                             <div className="card-title m-1"><span className="badge badge-secondary">{blog.tagname}</span></div>
                             <p className="card-body">{blog.body}</p>
-                            <div className="card-footer p-1 d-flex justify-content-around">
-                                <Link to={'/'} className="btn btn-secondary">Back</Link>
-                                <Link to={`/edit/${blog.title}/${blog.blogid}`} className="btn btn-secondary">Edit Blog</Link>
+                            <div className="card-footer p-1 d-flex justify-content-around border-dark shadow-sm">
+                                <Link to={'/'} className="btn btn-secondary border-dark shadow">Back</Link>
+                                <Link to={`/edit/${blog.title}/${blog.blogid}`} className="btn btn-secondary border-dark shadow">Edit Blog</Link>
                             </div>
                         </article>
                     }
