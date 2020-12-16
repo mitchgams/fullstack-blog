@@ -1,63 +1,27 @@
 import * as React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import Blogs from './components/view/Blogs';
+import Add from './components/view/Add';
+import Blog from './components/view/Blog';
+import Edit from './components/view/Edit';
 
-class App extends React.Component<IAppProps, IAppState> {
-	constructor(props: IAppProps) {
-		super(props);
-		this.state = {
-			name: null
-		};
-	}
-
-	async componentDidMount() {
-		try {
-			let r = await fetch('/api/hello');
-			let name = await r.json();
-			this.setState({ name });
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
-	render() {
-		return (
-			<main className="container my-5">
-				<h1 className="text-primary text-center">Hello {this.state.name}!</h1>
+const App = (props: AppProps) => {
+	return (
+		<BrowserRouter>
+			<Header />
+			<main className="container">
+				<Switch>
+					<Route exact path="/blogs/add"><Add /></Route>
+					<Route exact path="/blogs/:title/:id"><Blog /></Route>
+					<Route exact path="/edit/:title/:id"><Edit /></Route>
+					<Route path="/"><Blogs /></Route>
+				</Switch>
 			</main>
-		);
-	}
-}
+		</BrowserRouter>
+	);
+};
 
-export interface IAppProps {}
-
-export interface IAppState {
-	name: string;
-}
+interface AppProps {}
 
 export default App;
-
-//
-// const App = (props: AppProps) => {
-// 	const [greeting, setGreeting] = React.useState<string>('');
-
-// 	React.useEffect(() => {
-// 		(async () => {
-// 			try {
-// 				const res = await fetch('/api/hello');
-// 				const greeting = await res.json();
-// 				setGreeting(greeting);
-// 			} catch (error) {
-// 				console.log(error);
-// 			}
-// 		})();
-// 	}, []);
-
-// 	return (
-// 		<div className="min-vh-100 d-flex justify-content-center align-items-center">
-// 			<h1 className="display-1">Hello {greeting}!</h1>
-// 		</div>
-// 	);
-// };
-
-// interface AppProps {}
-
-// export default App;
